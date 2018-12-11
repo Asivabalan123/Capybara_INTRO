@@ -9,7 +9,6 @@ context 'it should show success message when complete' do
 
     @sparta_site.sparta_registration.fill_in_first_name_field('Abinu')
     expect(@sparta_site.sparta_registration.check_first_name_field).to eq 'Abinu'
-    sleep 5
 
     @sparta_site.sparta_registration.fill_in_last_name_field('Sivabalan')
     expect(@sparta_site.sparta_registration.check_last_name_field).to eq 'Sivabalan'
@@ -70,6 +69,9 @@ context 'it should show success message when complete' do
 
     @sparta_site.sparta_registration.sign_in
     expect(@sparta_site.sparta_success_page.current_url).to eq "https://crispyjourney.herokuapp.com/registration_complete?dob=1995-03-14&customRadioInline1=on&cv=Abinu.doc&streamRadioInline1=on"
+
+    expect(@sparta_site.sparta_success_page.get_confirmation_text).to eq (@sparta_site.sparta_success_page.get_confirmation_text)
+    sleep 3
 
     end
   end

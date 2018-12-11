@@ -7,12 +7,17 @@ class Confirmation
   attr_reader :completed_url, :confirmation
 
   def initialize
-    @completed_url = "https://crispyjourney.herokuapp.com/registration_complete"
     @confirmation = "You have successfully registered an account with Sparta Global!"
   end
 
+  SUCCESS_TEXT_FIELD = '.container'
+
   def current_url
     page.current_url
+  end
+
+  def get_confirmation_text
+    find(SUCCESS_TEXT_FIELD).text
   end
 
 end

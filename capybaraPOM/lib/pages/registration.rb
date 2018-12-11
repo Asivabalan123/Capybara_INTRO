@@ -194,4 +194,5 @@ class Registration
     find(SUBMIT_ID).click
   end
 
+
 end
